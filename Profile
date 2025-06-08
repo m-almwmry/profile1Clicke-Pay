@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1Clickpay - خدمات الشحن </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f0 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 20px rgba(37, 117, 252, 0.2);
+        }
+        
+        .logo i {
+            font-size: 50px;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            height: 180px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-card a {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: white;
+        }
+        
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .service-desc {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.05) 0%, rgba(37, 117, 252, 0.05) 100%);
+            z-index: 1;
+        }
+        
+        .service-card:nth-child(1) .service-icon { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); }
+        .service-card:nth-child(2) .service-icon { background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%); }
+        .service-card:nth-child(3) .service-icon { background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); }
+        .service-card:nth-child(4) .service-icon { background: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%); }
+        .service-card:nth-child(5) .service-icon { background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 14px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <h1>1Clickpay</h1>
+            <p class="subtitle">
+                ون كليك بي نقدم لكم كافة خدمة الشحن لجميع الشبكات المحلية وشحن جميع التطبيقات
+            </p>
+        </header>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <a href="https://play.google.com/store/apps/details?id=oneclickpe.app" target="_blank">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">تطبيق ون كليك بي</h3>
+                    <p class="service-desc">حمل تطبيقنا الآن لخدمات شحن سريعة وسهلة</p>
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <a href="https://1click-pay.com/" target="_blank">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">موقع ون كليك بي</h3>
+                    <p class="service-desc">زوروا موقعنا الإلكتروني للاستفادة من خدماتنا</p>
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <a href="https://chat.whatsapp.com/FCuYYzQ7QJzJ2y77ws7JAc" target="_blank">
+                    <div class="service-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3 class="service-title">اخبار ون كليك بي</h3>
+                    <p class="service-desc">تابع آخر أخبارنا وعروضنا الحصرية</p>
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <a href="https://api.whatsapp.com/send/?phone=967733544937&text&type=phone_number&app_absent=0&wame_ctl=1" target="_blank">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="service-title">خدمة عملاء ون كليك بي</h3>
+                    <p class="service-desc">فريق دعم العملاء جاهز لمساعدتك على مدار الساعة</p>
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <a href="https://www.instagram.com/1click_pay/#" target="_blank">
+                    <div class="service-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3 class="service-title">انستقرام ون كليك بي</h3>
+                    <p class="service-desc">تابعنا على انستقرام للحصول على آخر التحديثات</p>
+                </a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 1Clickpay. جميع الحقوق محفوظة.</p>
+        </footer>
+    </div>
+</body>
+</html>
