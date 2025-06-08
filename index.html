@@ -11,9 +11,10 @@
             --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             --secondary-gradient: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
             --tertiary-gradient: linear-gradient(135deg, #f46b45 0%, #eea849 100%);
-            --quaternary-gradient: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%);
             --whatsapp-gradient: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             --instagram-gradient: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #F56040 100%);
+            --facebook-gradient: linear-gradient(135deg, #4267B2 0%, #3b5998 100%);
+            --twitter-gradient: linear-gradient(135deg, #1DA1F2 0%, #0099ff 100%);
         }
         
         * {
@@ -31,66 +32,53 @@
             align-items: center;
             padding: 20px;
             color: #333;
+            overflow-x: hidden;
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
+            padding: 20px;
         }
         
         header {
             text-align: center;
             margin-bottom: 40px;
-            padding: 20px;
             position: relative;
         }
         
         .logo-container {
             position: relative;
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 20px;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 25px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .logo-frame {
+        .logo-circle {
             position: absolute;
             width: 100%;
             height: 100%;
             background: var(--primary-gradient);
-            border-radius: 30%;
-            box-shadow: 0 15px 35px rgba(37, 117, 252, 0.4);
+            border-radius: 50%;
+            box-shadow: 0 10px 25px rgba(37, 117, 252, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
-            transform: rotate(45deg);
             overflow: hidden;
-            transition: all 0.5s ease;
-        }
-        
-        .logo-container:hover .logo-frame {
-            transform: rotate(0deg);
-            border-radius: 50%;
         }
         
         .logo-img {
             position: relative;
-            width: 85%;
-            height: 85%;
-            border-radius: 20%;
-            overflow: hidden;
-            transform: rotate(-45deg);
-            transition: all 0.5s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            border: 3px solid white;
-        }
-        
-        .logo-container:hover .logo-img {
-            transform: rotate(0deg);
+            width: 90%;
+            height: 90%;
             border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            border: 3px solid white;
         }
         
         .logo-img img {
@@ -100,7 +88,7 @@
         }
         
         h1 {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 800;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
@@ -114,11 +102,11 @@
         h1::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
+            width: 80px;
+            height: 3px;
             background: var(--primary-gradient);
             border-radius: 2px;
         }
@@ -126,15 +114,15 @@
         .subtitle {
             font-size: 18px;
             color: #555;
-            max-width: 600px;
-            margin: 25px auto 0;
+            margin: 30px auto 0;
             line-height: 1.6;
             background: rgba(255, 255, 255, 0.7);
-            padding: 15px 25px;
+            padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border: 1px solid rgba(106, 17, 203, 0.1);
             position: relative;
+            max-width: 700px;
         }
         
         .subtitle::before {
@@ -146,54 +134,61 @@
             color: rgba(106, 17, 203, 0.2);
         }
         
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+        .services-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
         
         .service-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
             position: relative;
-            height: 200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
         }
         
         .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
         }
         
         .service-card a {
             display: flex;
-            flex-direction: column;
-            height: 100%;
             text-decoration: none;
             color: inherit;
-            padding: 30px 25px;
             position: relative;
             z-index: 2;
+            align-items: flex-start;
+            gap: 20px;
         }
         
         .service-icon {
-            width: 65px;
-            height: 65px;
-            border-radius: 18px;
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            font-size: 28px;
+            font-size: 24px;
             color: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
         
+        .service-content {
+            flex: 1;
+        }
+        
         .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.08);
         }
         
         .service-title {
@@ -204,7 +199,7 @@
         }
         
         .service-desc {
-            font-size: 14px;
+            font-size: 16px;
             color: #7f8c8d;
             line-height: 1.5;
         }
@@ -220,16 +215,23 @@
             z-index: 1;
         }
         
-        .service-card:nth-child(1) .service-icon { background: var(--primary-gradient); }
-        .service-card:nth-child(2) .service-icon { background: var(--secondary-gradient); }
-        .service-card:nth-child(3) .service-icon { background: var(--tertiary-gradient); }
-        .service-card:nth-child(4) .service-icon { background: var(--whatsapp-gradient); }
-        .service-card:nth-child(5) .service-icon { background: var(--instagram-gradient); }
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(106, 17, 203, 0.2), transparent);
+            margin: 10px 0;
+        }
+        
+        /* تحديد الألوان لكل بطاقة بشكل صريح */
+        .app-icon { background: var(--primary-gradient); }
+        .website-icon { background: var(--secondary-gradient); }
+        .news-icon { background: var(--tertiary-gradient); }
+        .support-icon { background: var(--whatsapp-gradient); }
+        .instagram-icon { background: var(--instagram-gradient); }
         
         footer {
             text-align: center;
-            margin-top: 60px;
-            padding: 20px;
+            margin-top: 50px;
+            padding: 25px 20px;
             color: #7f8c8d;
             font-size: 14px;
             border-top: 1px solid rgba(0,0,0,0.05);
@@ -237,6 +239,7 @@
             border-radius: 15px;
             backdrop-filter: blur(5px);
             position: relative;
+            width: 100%;
         }
         
         footer::before {
@@ -253,158 +256,244 @@
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 14px;
             margin-top: 15px;
         }
         
         .social-icon {
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--primary-gradient);
             color: white;
-            font-size: 18px;
+            font-size: 17px;
             transition: all 0.3s ease;
         }
         
+        .social-icon.facebook { background: var(--facebook-gradient); }
+        .social-icon.twitter { background: var(--twitter-gradient); }
+        .social-icon.instagram { background: var(--instagram-gradient); }
+        .social-icon.whatsapp { background: var(--whatsapp-gradient); }
+        
         .social-icon:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
         
+        /* إضافة أنماط للتأكد من ظهور الأيقونات */
+        .fa-whatsapp:before {
+            content: "\f232";
+        }
+        
+        .fa-instagram:before {
+            content: "\f16d";
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr;
+            body {
+                padding: 15px;
             }
             
-            h1 {
-                font-size: 36px;
+            .container {
+                padding: 10px;
+                max-width: 600px;
             }
             
             .logo-container {
-                width: 160px;
-                height: 160px;
+                width: 130px;
+                height: 130px;
+                margin-bottom: 20px;
+            }
+            
+            h1 {
+                font-size: 30px;
+            }
+            
+            h1::after {
+                width: 70px;
+                bottom: -7px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+                padding: 18px;
+                margin-top: 25px;
+            }
+            
+            .service-card {
+                padding: 22px;
+            }
+            
+            .service-card a {
+                gap: 18px;
+            }
+            
+            .service-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 22px;
+            }
+            
+            .service-title {
+                font-size: 20px;
+            }
+            
+            .service-desc {
+                font-size: 15px;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+            
+            footer {
+                margin-top: 40px;
+                padding: 20px;
             }
         }
         
-        /* Decorations */
-        .decoration {
-            position: absolute;
-            z-index: -1;
-            opacity: 0.1;
+        @media (max-width: 480px) {
+            .logo-container {
+                width: 110px;
+                height: 110px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            .subtitle {
+                font-size: 15px;
+                padding: 16px;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+            
+            .service-card a {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .service-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .service-title {
+                font-size: 18px;
+            }
+            
+            .service-desc {
+                font-size: 14px;
+            }
+            
+            .social-icons {
+                gap: 12px;
+            }
         }
         
-        .circle-1 {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            top: -150px;
-            right: -150px;
-        }
-        
-        .circle-2 {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: var(--tertiary-gradient);
-            bottom: -100px;
-            left: -100px;
-        }
-        
-        .triangle {
-            width: 0;
-            height: 0;
-            border-left: 100px solid transparent;
-            border-right: 100px solid transparent;
-            border-bottom: 180px solid rgba(0, 176, 155, 0.1);
-            top: 40%;
-            left: 10%;
-            transform: rotate(30deg);
-        }
-        
+        /* Animation for logo */
         @keyframes float {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-8px); }
             100% { transform: translateY(0); }
         }
         
         .logo-container {
-            animation: float 6s ease-in-out infinite;
+            animation: float 5s ease-in-out infinite;
         }
     </style>
 </head>
 <body>
-    <div class="decoration circle-1"></div>
-    <div class="decoration circle-2"></div>
-    <div class="decoration triangle"></div>
-    
     <div class="container">
         <header>
             <div class="logo-container">
-                <div class="logo-frame">
+                <div class="logo-circle">
                     <div class="logo-img">
                         <img src="https://i.ibb.co/5XTdG1K1/IMG-20250608-WA0026.jpg" alt="1Clickpay Logo">
                     </div>
                 </div>
             </div>
-            <h1>ون كليك بي </h1>
+            <h1>1Clickpay</h1>
             <p class="subtitle">
                 ون كليك بي نقدم لكم كافة خدمة الشحن لجميع الشبكات المحلية وشحن جميع التطبيقات
             </p>
         </header>
         
-        <div class="services-grid">
+        <div class="services-container">
             <div class="service-card">
                 <a href="https://play.google.com/store/apps/details?id=oneclickpe.app" target="_blank">
-                    <div class="service-icon">
+                    <div class="service-icon app-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 class="service-title">تطبيق ون كليك بي</h3>
-                    <p class="service-desc">حمل تطبيقنا الآن لخدمات شحن سريعة وسهلة</p>
+                    <div class="service-content">
+                        <h3 class="service-title">تطبيق ون كليك بي</h3>
+                        <p class="service-desc">حمل تطبيقنا الآن لخدمات شحن سريعة وسهلة</p>
+                    </div>
                 </a>
             </div>
             
+            <div class="divider"></div>
+            
             <div class="service-card">
-                <a href="https://1click-pay.com/" target="_blank">
-                    <div class="service-icon">
+                <a href="https://1click-pay.com" target="_blank">
+                    <div class="service-icon website-icon">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <h3 class="service-title">موقع ون كليك بي</h3>
-                    <p class="service-desc">زوروا موقعنا الإلكتروني للاستفادة من خدماتنا</p>
+                    <div class="service-content">
+                        <h3 class="service-title">موقع ون كليك بي</h3>
+                        <p class="service-desc">زوروا موقعنا الإلكتروني للاستفادة من خدماتنا</p>
+                    </div>
                 </a>
             </div>
+            
+            <div class="divider"></div>
             
             <div class="service-card">
                 <a href="https://chat.whatsapp.com/FCuYYzQ7QJzJ2y77ws7JAc" target="_blank">
-                    <div class="service-icon">
+                    <div class="service-icon news-icon">
                         <i class="fas fa-newspaper"></i>
                     </div>
-                    <h3 class="service-title">اخبار ون كليك بي</h3>
-                    <p class="service-desc">تابع آخر أخبارنا وعروضنا الحصرية</p>
+                    <div class="service-content">
+                        <h3 class="service-title">اخبار ون كليك بي</h3>
+                        <p class="service-desc">تابع آخر أخبارنا وعروضنا الحصرية</p>
+                    </div>
                 </a>
             </div>
+            
+            <div class="divider"></div>
             
             <div class="service-card">
                 <a href="https://api.whatsapp.com/send/?phone=967733544937&text&type=phone_number&app_absent=0&wame_ctl=1" target="_blank">
-                    <div class="service-icon">
+                    <div class="service-icon support-icon">
                         <i class="fab fa-whatsapp"></i>
                     </div>
-                    <h3 class="service-title">خدمة العملاء (1) ون كليك بي</h3>
-                    <p class="service-desc">تواصل مع فريق الدعم عبر واتساب</p>
+                    <div class="service-content">
+                        <h3 class="service-title">خدمة العملاء (1) ون كليك بي</h3>
+                        <p class="service-desc">تواصل مع فريق الدعم عبر واتساب</p>
+                    </div>
                 </a>
             </div>
             
+            <div class="divider"></div>
+            
             <div class="service-card">
                 <a href="https://www.instagram.com/1click_pay/" target="_blank">
-                    <div class="service-icon">
+                    <div class="service-icon instagram-icon">
                         <i class="fab fa-instagram"></i>
                     </div>
-                    <h3 class="service-title">انستقرام ون كليك بي</h3>
-                    <p class="service-desc">تابعنا على انستقرام للحصول على آخر التحديثات</p>
+                    <div class="service-content">
+                        <h3 class="service-title">انستقرام ون كليك بي</h3>
+                        <p class="service-desc">تابعنا على انستقرام للحصول على آخر التحديثات</p>
+                    </div>
                 </a>
             </div>
         </div>
@@ -412,12 +501,42 @@
         <footer>
             <p>© 2023 1Clickpay. جميع الحقوق محفوظة.</p>
             <div class="social-icons">
-                <a href="https://facebook.com" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com/1clickpay" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="https://api.whatsapp.com/send/?phone=967733544937&text&type=phone_number&app_absent=0&wame_ctl=1" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://facebook.com" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/1clickpay" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/1234567890" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
             </div>
         </footer>
     </div>
+    
+    <script>
+        // تأكيد تحميل مكتبة Font Awesome
+        document.addEventListener('DOMContentLoaded', function() {
+            if(!window.FontAwesome) {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+                document.head.appendChild(link);
+                
+                console.log('تم إعادة تحميل مكتبة Font Awesome');
+            }
+            
+            // التأكد من ظهور الأيقونات
+            const whatsappIcon = document.querySelector('.fa-whatsapp');
+            const instagramIcon = document.querySelector('.fa-instagram');
+            
+            if(whatsappIcon) {
+                console.log('أيقونة واتساب موجودة');
+            } else {
+                console.log('أيقونة واتساب غير موجودة');
+            }
+            
+            if(instagramIcon) {
+                console.log('أيقونة انستجرام موجودة');
+            } else {
+                console.log('أيقونة انستجرام غير موجودة');
+            }
+        });
+    </script>
 </body>
 </html>
