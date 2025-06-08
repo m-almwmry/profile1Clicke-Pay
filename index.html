@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Clickpay - خدمات الشحن </title>
+    <title>1Clickpay - خدمات الشحن المحلية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            --secondary-gradient: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+            --tertiary-gradient: linear-gradient(135deg, #f46b45 0%, #eea849 100%);
+            --quaternary-gradient: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%);
+            --whatsapp-gradient: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            --instagram-gradient: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #F56040 100%);
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +24,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f0 100%);
+            background: linear-gradient(135deg, #f0f5ff 0%, #e6f0ff 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -34,47 +43,113 @@
             text-align: center;
             margin-bottom: 40px;
             padding: 20px;
+            position: relative;
         }
         
-        .logo {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            border-radius: 50%;
+        .logo-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            box-shadow: 0 10px 20px rgba(37, 117, 252, 0.2);
         }
         
-        .logo i {
-            font-size: 50px;
-            color: white;
+        .logo-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 30%;
+            box-shadow: 0 15px 35px rgba(37, 117, 252, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(45deg);
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .logo-container:hover .logo-frame {
+            transform: rotate(0deg);
+            border-radius: 50%;
+        }
+        
+        .logo-img {
+            position: relative;
+            width: 85%;
+            height: 85%;
+            border-radius: 20%;
+            overflow: hidden;
+            transform: rotate(-45deg);
+            transition: all 0.5s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 3px solid white;
+        }
+        
+        .logo-container:hover .logo-img {
+            transform: rotate(0deg);
+            border-radius: 50%;
+        }
+        
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         h1 {
             font-size: 42px;
             font-weight: 800;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
         }
         
         .subtitle {
             font-size: 18px;
             color: #555;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 25px auto 0;
             line-height: 1.6;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(106, 17, 203, 0.1);
+            position: relative;
+        }
+        
+        .subtitle::before {
+            content: "❝";
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 40px;
+            color: rgba(106, 17, 203, 0.2);
         }
         
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
         
         .service-card {
@@ -82,14 +157,14 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            height: 180px;
+            height: 200px;
         }
         
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
         
         .service-card a {
@@ -98,14 +173,14 @@
             height: 100%;
             text-decoration: none;
             color: inherit;
-            padding: 25px;
+            padding: 30px 25px;
             position: relative;
             z-index: 2;
         }
         
         .service-icon {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 18px;
             display: flex;
             align-items: center;
@@ -113,18 +188,25 @@
             margin-bottom: 20px;
             font-size: 28px;
             color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
         }
         
         .service-title {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             color: #2c3e50;
         }
         
         .service-desc {
             font-size: 14px;
             color: #7f8c8d;
+            line-height: 1.5;
         }
         
         .service-card::before {
@@ -134,23 +216,63 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(106, 17, 203, 0.05) 0%, rgba(37, 117, 252, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.03) 0%, rgba(37, 117, 252, 0.03) 100%);
             z-index: 1;
         }
         
-        .service-card:nth-child(1) .service-icon { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); }
-        .service-card:nth-child(2) .service-icon { background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%); }
-        .service-card:nth-child(3) .service-icon { background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); }
-        .service-card:nth-child(4) .service-icon { background: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%); }
-        .service-card:nth-child(5) .service-icon { background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); }
+        .service-card:nth-child(1) .service-icon { background: var(--primary-gradient); }
+        .service-card:nth-child(2) .service-icon { background: var(--secondary-gradient); }
+        .service-card:nth-child(3) .service-icon { background: var(--tertiary-gradient); }
+        .service-card:nth-child(4) .service-icon { background: var(--whatsapp-gradient); }
+        .service-card:nth-child(5) .service-icon { background: var(--instagram-gradient); }
         
         footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             padding: 20px;
             color: #7f8c8d;
             font-size: 14px;
             border-top: 1px solid rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(106, 17, 203, 0.3), transparent);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-gradient);
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
         }
         
         @media (max-width: 768px) {
@@ -161,14 +283,73 @@
             h1 {
                 font-size: 36px;
             }
+            
+            .logo-container {
+                width: 160px;
+                height: 160px;
+            }
+        }
+        
+        /* Decorations */
+        .decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            top: -150px;
+            right: -150px;
+        }
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--tertiary-gradient);
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 180px solid rgba(0, 176, 155, 0.1);
+            top: 40%;
+            left: 10%;
+            transform: rotate(30deg);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .logo-container {
+            animation: float 6s ease-in-out infinite;
         }
     </style>
 </head>
 <body>
+    <div class="decoration circle-1"></div>
+    <div class="decoration circle-2"></div>
+    <div class="decoration triangle"></div>
+    
     <div class="container">
         <header>
-            <div class="logo">
-                <i class="fas fa-bolt"></i>
+            <div class="logo-container">
+                <div class="logo-frame">
+                    <div class="logo-img">
+                        <img src="https://i.ibb.co/5XTdG1K1/IMG-20250608-WA0026.jpg" alt="1Clickpay Logo">
+                    </div>
+                </div>
             </div>
             <h1>1Clickpay</h1>
             <p class="subtitle">
@@ -210,15 +391,15 @@
             <div class="service-card">
                 <a href="https://api.whatsapp.com/send/?phone=967733544937&text&type=phone_number&app_absent=0&wame_ctl=1" target="_blank">
                     <div class="service-icon">
-                        <i class="fas fa-headset"></i>
+                        <i class="fab fa-whatsapp"></i>
                     </div>
-                    <h3 class="service-title">خدمة عملاء ون كليك بي</h3>
-                    <p class="service-desc">فريق دعم العملاء جاهز لمساعدتك على مدار الساعة</p>
+                    <h3 class="service-title">خدمة العملاء (1) ون كليك بي</h3>
+                    <p class="service-desc">تواصل مع فريق الدعم عبر واتساب</p>
                 </a>
             </div>
             
             <div class="service-card">
-                <a href="https://www.instagram.com/1click_pay/#" target="_blank">
+                <a href="https://www.instagram.com/1click_pay/" target="_blank">
                     <div class="service-icon">
                         <i class="fab fa-instagram"></i>
                     </div>
@@ -229,7 +410,13 @@
         </div>
         
         <footer>
-            <p>© 2025 1Clickpay. جميع الحقوق محفوظة.</p>
+            <p>© 2023 1Clickpay. جميع الحقوق محفوظة.</p>
+            <div class="social-icons">
+                <a href="https://facebook.com" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/1clickpay" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=967733544937&text&type=phone_number&app_absent=0&wame_ctl=1" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
         </footer>
     </div>
 </body>
